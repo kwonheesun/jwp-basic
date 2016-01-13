@@ -18,7 +18,7 @@
 					<h1>로그인</h1>
 				</div>
 				<div id="main">
-					<form name="login" method="post" action="/login">
+					<form name="login" method="post" action="/user/login.next">
 						<table>
 							<tr>
 								<td class="span1">아이디</td>

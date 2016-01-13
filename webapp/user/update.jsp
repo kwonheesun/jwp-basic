@@ -19,11 +19,11 @@
                     <h1>회원가입</h1>
                 </div>
                 
-                <form name="user" method="post" action="/user/update">
+                <form name="user" method="post" action="/user/update.next">
                 	<input type="hidden" name="userId" value="${user.userId}">
                     <table>
                         <tr>
-                            <td>사용자 아이디</td>
+                            <td class="span1">아이디</td>
                             <td>${user.userId}</td>
                         </tr>
                         <tr>

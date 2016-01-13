@@ -33,7 +33,7 @@
 			<br /> 
 		  	<a class="btn" href="">수정</a>&nbsp;&nbsp;
 		  	<a class="btn" href="">삭제</a>&nbsp;&nbsp;
-		  	<a class="btn" href="/">목록으로</a>
+		  	<a class="btn" href="/qna/list.next">목록으로</a>
 		  	<br/>
 			<br/>
 			<div class="answerWrite">

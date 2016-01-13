@@ -14,12 +14,12 @@
               <li><a href="/">Home</a></li>
               <c:choose>
               <c:when test="${not empty user}">
-              <li><a href="/logout">로그아웃</a></li>
-              <li><a href="/user/updateForm?userId=${user.userId}">개인정보수정</a></li>  
+              <li><a href="/user/logout.next">로그아웃</a></li>
+              <li><a href="/user/updateForm.next?userId=${user.userId}">개인정보수정</a></li>  
               </c:when>
               <c:otherwise>
-              <li><a href="/user/login.jsp">로그인</a></li>
-              <li><a href="/user/form">회원가입</a></li> 
+              <li><a href="/user/loginForm.next">로그인</a></li>
+              <li><a href="/user/form.next">회원가입</a></li> 
               </c:otherwise>
               </c:choose>
             </ul>

@@ -4,7 +4,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
-import next.model.Answer;
+import next.model.Question;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -14,7 +14,7 @@ import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
 
 import core.jdbc.ConnectionManager;
 
-public class AnswerDaoTest {
+public class QuestionDaoTest {
 	@Before
 	public void setup() {
 		ResourceDatabasePopulator populator = new ResourceDatabasePopulator();
@@ -24,12 +24,11 @@ public class AnswerDaoTest {
 
 	@Test
 	public void crud() throws Exception {
-		long questionId = 1L;
-		Answer expected = new Answer("javajigi", "answer contents", questionId);
-		AnswerDao dut = new AnswerDao();
+		Question expected = new Question("자바지기", "title", "contents");
+		QuestionDao dut = new QuestionDao();
 		dut.insert(expected);
 		
-		List<Answer> answers = dut.findAllByQuestionId(questionId);
-		assertTrue(answers.size() > 0);
+		List<Question> questions = dut.findAll();
+		assertTrue(questions.size() > 0);
 	}
 }

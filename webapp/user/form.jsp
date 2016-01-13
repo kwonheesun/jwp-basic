@@ -19,7 +19,7 @@
                     <h1>회원가입</h1>
                 </div>
                 
-                <form name="user" method="post" action="/user/create">
+                <form name="user" method="post" action="/user/create.next">
                     <table>
                         <tr>
                             <td class="span1">아이디</td>
