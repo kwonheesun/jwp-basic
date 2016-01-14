@@ -3,6 +3,7 @@ package core.mvc;
 import java.util.HashMap;
 import java.util.Map;
 
+import next.web.qna.AddAnswerController;
 import next.web.qna.ListController;
 import next.web.qna.ShowController;
 import next.web.user.CreateController;
@@ -29,6 +30,7 @@ public class RequestMapping {
 	    
 		mappings.put("/qna/list.next", new ListController());
 		mappings.put("/qna/show.next", new ShowController());
+		mappings.put("/api/qna/addanswer.next", new AddAnswerController());
 		mappings.put("/qna/form.next", new ForwardController("/qna/form.jsp"));
 		
 		

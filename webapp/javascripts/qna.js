@@ -7,7 +7,7 @@ function addAnswer(e) {
 	
 	$.ajax({
 	    type : 'post',
-	    url : '/api/qna/addanswer',
+	    url : '/api/qna/addanswer.next',
 	    data : queryString,
 	    dataType : 'json',
 	    error: onError,
@@ -16,32 +16,12 @@ function addAnswer(e) {
 }
 
 function onSuccess(data, status){
-	var answer = "<div class='answer'><b>" + data.writer + "</b><p>" + data.contents + "</p></div>";
-    $(".answers").prepend(answer);
+	var answer = data.answer;
+	var answerEle = "<div class='answer'><b>" + answer.writer + "</b><p>" + answer.contents + "</p>" + 
+		"<a href='/api/qna/deleteanswer.next?answerId=" + answer.answerId + "'>삭제</a></div>";
+    $(".answers").prepend(answerEle);
 }
 
 function onError(data, status) {
 	alert("error");
-}
-
-$(".answerDelete").click(deleteAnswer);
-
-function deleteAnswer(e) {
-	e.preventDefault();
-	
-	var answerEle = $(this);
-		
-	$.ajax({
-	    type : 'get',
-	    url : answerEle.attr("href"),	    
-	    dataType : 'json',
-	    error: function(xhr, status, error){
-            console.log(error);
-        },
-        success : function(data){
-            if (data.status) {
-            	answerEle.parent().remove();
-            }
-        }
-	});
 }
