@@ -70,4 +70,17 @@ public class AnswerDao {
         return jdbcTemplate.query(sql, rm, questionId);
     }
     
+    
+    
+    // 답변 지우기
+    public void delete(Answer answer) {
+        JdbcTemplate jdbcTemplate = new JdbcTemplate();
+        String sql = "DELETE FROM ANSWERS WHERE answerId = ?";
+        
+        logger.info(sql);
+        
+        jdbcTemplate.update(sql, 
+        		answer.getAnswerId());
+    }
+    
 }

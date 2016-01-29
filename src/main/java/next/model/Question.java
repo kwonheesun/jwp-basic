@@ -90,4 +90,8 @@ public class Question {
 	public void countUp(){
 		countOfComment += 1;
 	}
+	
+	public void countDown(){
+		countOfComment --;
+	}
 }

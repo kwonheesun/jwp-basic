@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 
 import next.web.qna.AddAnswerController;
 import next.web.qna.AddQuestionController;
+import next.web.qna.DeleteAnswerController;
 import next.web.qna.ListController;
 import next.web.qna.ShowController;
 import next.web.user.CreateController;
@@ -35,6 +36,7 @@ public class RequestMapping {
 		mappings.put("/qna/form.next", new ForwardController("/qna/form.jsp"));
 		
 		mappings.put("/qna/create.next", new AddQuestionController());
+		mappings.put("/api/qna/deleteanswer.next", new DeleteAnswerController());
 		
 		logger.info("Initialized Request Mapping!");
 	}

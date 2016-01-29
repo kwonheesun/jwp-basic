@@ -63,9 +63,12 @@
 		    <c:forEach items="${answers}" var="each">
 		    	<tr>
 			    	<div>
-			            <b>${each.writer}</b>
-			            <p>${each.contents }</p>
-			            <a class="answerDelete" href="/api/qna/deleteanswer.next?answerId=1">삭제</a>
+				    	<form class="answer" name="answer" method="post">
+				    		<input type="hidden" name="answerId" value="${each.answerId}">
+				            <b>${each.writer}</b>
+				            <p>${each.contents }</p>
+				            <a class="answerDelete" href="">삭제</a>
+			            </form>
 			    	</div>
 	            </tr>
              </c:forEach>

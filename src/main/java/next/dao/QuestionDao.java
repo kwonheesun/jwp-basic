@@ -67,6 +67,7 @@ public class QuestionDao {
 		return jdbcTemplate.queryForObject(sql, rm, questionId);
 	}
 
+	// question 업데이트
 	public void update(Question question) {
 		JdbcTemplate jdbcTemplate = new JdbcTemplate();
 		String sql = "UPDATE QUESTIONS SET countOfComment = ? WHERE questionId = ?";

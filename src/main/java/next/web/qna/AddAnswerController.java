@@ -13,6 +13,7 @@ import next.dao.AnswerDao;
 import next.dao.QuestionDao;
 import next.model.Answer;
 import next.model.Question;
+import next.model.Result;
 
 public class AddAnswerController extends AbstractController {
 	private static final Logger logger = LoggerFactory.getLogger(AddAnswerController.class);	
@@ -29,21 +30,18 @@ public class AddAnswerController extends AbstractController {
         
         Answer savedAnswer = answerDao.insert(answer);
         
-      //Question 갯수 증가
+      // 해당 Question의 Answer 갯수 증가
       long questionId = Long.parseLong(request.getParameter("questionId"));
       QuestionDao questionDao = new QuestionDao();
       Question question = questionDao.findById(questionId);
       question.countUp();
       questionDao.update(question);
       
-      question = questionDao.findById(questionId);
-      
-      logger.info(String.valueOf(question.getCountOfComment()));
-        
         ModelAndView mav = jsonView();
         mav.addObject("answer", savedAnswer);
+//        mav.addObject("result", Result.ok());
         
-        logger.info(request.getParameter("questionId") + "에 추가되었습니다.");
+        // 깜박이지 않고도 알아서 실행 되도록 수정하기
         
         return mav;
     }
