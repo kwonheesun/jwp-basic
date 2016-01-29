@@ -5,9 +5,10 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.List;
 
-import next.model.Answer;
 import core.jdbc.JdbcTemplate;
 import core.jdbc.RowMapper;
+import next.model.Answer;
+import next.model.Question;
 
 public class AnswerDao {
     private Long newAnswerId() {
@@ -28,6 +29,13 @@ public class AnswerDao {
         String sql = "INSERT INTO ANSWERS (answerId, writer, contents, createdDate, questionId) VALUES (?, ?, ?, ?, ?)";
         jdbcTemplate.update(sql, newAnswerId, answer.getWriter(), answer.getContents(),
                 new Timestamp(answer.getTimeFromCreateDate()), answer.getQuestionId());
+        
+        //Question 갯수 증가
+        long questionId = 0;
+        QuestionDao questionDao = new QuestionDao();
+        Question question = questionDao.findById(questionId);
+        
+        
         return findById(newAnswerId);
     }
 
@@ -61,4 +69,5 @@ public class AnswerDao {
 
         return jdbcTemplate.query(sql, rm, questionId);
     }
+    
 }

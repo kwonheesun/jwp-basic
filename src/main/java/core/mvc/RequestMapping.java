@@ -3,7 +3,11 @@ package core.mvc;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import next.web.qna.AddAnswerController;
+import next.web.qna.AddQuestionController;
 import next.web.qna.ListController;
 import next.web.qna.ShowController;
 import next.web.user.CreateController;
@@ -11,9 +15,6 @@ import next.web.user.LoginController;
 import next.web.user.LogoutController;
 import next.web.user.UpdateController;
 import next.web.user.UpdateFormController;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class RequestMapping {
 	private static final Logger logger = LoggerFactory.getLogger(DispatcherServlet.class);
@@ -33,6 +34,7 @@ public class RequestMapping {
 		mappings.put("/api/qna/addanswer.next", new AddAnswerController());
 		mappings.put("/qna/form.next", new ForwardController("/qna/form.jsp"));
 		
+		mappings.put("/qna/create.next", new AddQuestionController());
 		
 		logger.info("Initialized Request Mapping!");
 	}

@@ -17,6 +17,11 @@ import core.mvc.AbstractController;
 import core.mvc.ModelAndView;
 import core.utils.ServletRequestUtils;
 
+/*
+ * 답변 목록을 정적인 html이 아니라 데이터베이스에 저장되어 있는 답변을 출력하도록 구현한다.
+ * 단, jstl과 el만으로 구현
+ */
+
 public class ShowController extends AbstractController {
 	private static final Logger logger = LoggerFactory.getLogger(ShowController.class);
 	
@@ -38,6 +43,7 @@ public class ShowController extends AbstractController {
 		ModelAndView mav = jstlView("/qna/show.jsp");
 		mav.addObject("question", question);
 		mav.addObject("answers", answers);
+
 		return mav;
 	}
 }

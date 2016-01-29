@@ -19,7 +19,7 @@
                     <h1>질문하기</h1>
                 </div>
                 
-                <form name="question" method="post" action="/qna/create">
+                <form name="question" method="post" action="/qna/create.next">
                     <table>
                     	<tr>
                             <td class="span1">글쓴이</td>
