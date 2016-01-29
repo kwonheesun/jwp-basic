@@ -5,11 +5,17 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import next.model.Question;
+import next.web.qna.AddAnswerController;
 import core.jdbc.JdbcTemplate;
 import core.jdbc.RowMapper;
 
 public class QuestionDao {
+	
+	private static final Logger logger = LoggerFactory.getLogger(AddAnswerController.class);	
 
 	public void insert(Question question) {
 		JdbcTemplate jdbcTemplate = new JdbcTemplate();
@@ -59,5 +65,19 @@ public class QuestionDao {
 		};
 		
 		return jdbcTemplate.queryForObject(sql, rm, questionId);
+	}
+
+	public void update(Question question) {
+		JdbcTemplate jdbcTemplate = new JdbcTemplate();
+		String sql = "UPDATE QUESTIONS SET countOfComment = ? WHERE questionId = ?";
+		logger.info(sql);
+		
+		logger.info(String.valueOf(question.getCountOfComment()));
+		
+		jdbcTemplate.update(sql, 
+				question.getCountOfComment(),
+				question.getQuestionId());
+		
+		logger.info(String.valueOf(question.getCountOfComment()));
 	}
 }

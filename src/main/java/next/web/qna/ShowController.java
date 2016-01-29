@@ -43,6 +43,9 @@ public class ShowController extends AbstractController {
 		ModelAndView mav = jstlView("/qna/show.jsp");
 		mav.addObject("question", question);
 		mav.addObject("answers", answers);
+		
+		logger.info(String.valueOf(questionId));
+		logger.info(String.valueOf(question.getCountOfComment()));
 
 		return mav;
 	}
