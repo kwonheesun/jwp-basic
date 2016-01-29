@@ -56,20 +56,18 @@
 		    <!-- answers start -->
 		    <h3>
 		    	<!-- ${answers.size() } -->
-		   	 	댓글 수 : ${question.countOfComment}
+		   	 	댓글 수 : <a class = "countOfComment">${question.countOfComment}</a>
 		    </h3>
 		    
 		    
 		    <c:forEach items="${answers}" var="each">
 		    	<tr>
-			    	<div>
 				    	<form class="answer" name="answer" method="post">
 				    		<input type="hidden" name="answerId" value="${each.answerId}">
 				            <b>${each.writer}</b>
 				            <p>${each.contents }</p>
 				            <a class="answerDelete" href="">삭제</a>
 			            </form>
-			    	</div>
 	            </tr>
              </c:forEach>
 			

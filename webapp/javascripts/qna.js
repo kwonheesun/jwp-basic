@@ -1,3 +1,8 @@
+
+
+
+
+// 답변 추가
 $(".answerWrite input[type=submit]").click(addAnswer);
 
 function addAnswer(e) {
@@ -43,8 +48,10 @@ function deleteAnswer(e){
 	    dataType : 'json',
 	    error: onDeleteError,
 	    success : function onDeleteSuccess(data, status){
-	    	if ( data.result.status) 
+	    	if ( data.result.status) {
 	    		deleteBtn.parent().remove();
+//	    		$(".countOfComment") = 
+	    	}
 	    }
 	});
 }

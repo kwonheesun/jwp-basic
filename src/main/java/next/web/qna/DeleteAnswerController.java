@@ -43,6 +43,7 @@ public class DeleteAnswerController extends AbstractController {
         questionDao.update(question);
         
 	    ModelAndView mav = jsonView();
+//	    mav.addObject("count", question.getCountOfComment());
 	    mav.addObject("result", Result.ok());
         
         return mav;

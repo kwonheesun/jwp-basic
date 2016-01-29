@@ -10,6 +10,7 @@ import next.web.qna.AddAnswerController;
 import next.web.qna.AddQuestionController;
 import next.web.qna.DeleteAnswerController;
 import next.web.qna.ListController;
+import next.web.qna.MoblieShowController;
 import next.web.qna.ShowController;
 import next.web.user.CreateController;
 import next.web.user.LoginController;
@@ -37,6 +38,7 @@ public class RequestMapping {
 		
 		mappings.put("/qna/create.next", new AddQuestionController());
 		mappings.put("/api/qna/deleteanswer.next", new DeleteAnswerController());
+		mappings.put("/api/list.next", new MoblieShowController());
 		
 		logger.info("Initialized Request Mapping!");
 	}

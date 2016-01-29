@@ -23,6 +23,7 @@
 		                <td span="1">작성자</td>
 		                <td span="1">작성일</td>
 		            </tr>
+		            
 		            <c:forEach items="${questions}" var="each">
 		            <tr>
 	                    <td><a href="/qna/show.next?questionId=${each.questionId}">${each.title}</a></td>
@@ -30,6 +31,7 @@
 	                    <td><fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss" value="${each.createdDate}" /></td>
 	                </tr>
 	                </c:forEach>
+	                
 		        </table>
 		        <a class="btn btn-primary pull-right" href="/qna/form.next">질문하기</a>
 			</div>

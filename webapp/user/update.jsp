@@ -16,7 +16,7 @@
             <div class="span12">
                 <section id="typography">
                 <div class="page-header">
-                    <h1>회원가입</h1>
+                    <h1>개인정보수정</h1>
                 </div>
                 
                 <form name="user" method="post" action="/user/update.next">
